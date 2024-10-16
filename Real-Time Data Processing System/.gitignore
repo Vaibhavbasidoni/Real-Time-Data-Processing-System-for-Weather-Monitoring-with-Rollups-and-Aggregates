@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Database
+*.db
+
+# Generated files
+*.png
+
+# Configuration files with sensitive information
+src/config/config.py
