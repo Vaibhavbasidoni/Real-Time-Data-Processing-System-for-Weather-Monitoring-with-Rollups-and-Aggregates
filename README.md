@@ -66,24 +66,23 @@ This project is a Python-based real-time weather monitoring system that fetches 
    ```
 
 ## Project Structure
-weather-monitoring-system/
+Real-Time Data Processing System/
 ├── src/
 │ ├── api/
-│ │ └── openweathermap.py # Handles API interactions
+│ │ └── openweathermap.py
 │ ├── data/
-│ │ └── aggregator.py # Processes and aggregates weather data
+│ │ └── aggregator.py
 │ ├── alerts/
-│ │ └── alert_system.py # Manages the alerting system
+│ │ └── alert_system.py
 │ ├── visualization/
-│ │ └── data_visualizer.py # Creates data visualizations
+│ │ └── data_visualizer.py
 │ └── config/
-│ └── config.py # Central configuration file
+│ └── config.py
 ├── tests/
-│ └── test_weather_system.py # Unit tests for the system
-├── run.py # Main entry point of the application
+│ └── test_weather_system.py
+├── run.py
 ├── README.md
-└── requirements.txt # List of project dependencies
-
+└── requirements.txt
 
 ## Configuration Options
 - `API_KEY`: Your OpenWeatherMap API key
