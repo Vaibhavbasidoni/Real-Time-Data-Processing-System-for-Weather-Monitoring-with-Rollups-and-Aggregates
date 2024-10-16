@@ -39,8 +39,8 @@ This project is a Python-based real-time weather monitoring system that fetches 
 
 1. **Clone the Repository**
    ```
-   git clone https://github.com/yourusername/weather-monitoring-system.git
-   cd weather-monitoring-system
+   git https://github.com/Vaibhavbasidoni/Real-Time-Data-Processing-System-for-Weather-Monitoring-with-Rollups-and-Aggregates.git
+   cd Real-Time Data Processing System
    ```
 
 2. **Set Up a Virtual Environment (Optional but Recommended)**
