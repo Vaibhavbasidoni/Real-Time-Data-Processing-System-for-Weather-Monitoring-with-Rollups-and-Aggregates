@@ -49,15 +49,3 @@ This project is a Python-based weather monitoring system that provides real-time
 - To change how often the system updates, edit the `UPDATE_INTERVAL` in `src/config/config.py`.
 - To adjust temperature alert thresholds, modify the `ALERT_THRESHOLDS` in the same file.
 
-## Troubleshooting
-
-- If you see an error about the API key, double-check that you've entered it correctly in the config file.
-- Make sure you're connected to the internet, as the system needs to fetch data online.
-
-## Want to Contribute?
-
-We welcome contributions! If you have ideas for improvements or find any issues, please let us know by opening an issue or submitting a pull request.
-
-## Questions?
-
-If you have any questions about setting up or using this weather monitoring system, please open an issue in this repository, and we'll be happy to help!
