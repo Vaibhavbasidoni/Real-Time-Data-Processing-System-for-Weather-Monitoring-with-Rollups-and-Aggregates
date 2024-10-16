@@ -1,51 +1,105 @@
 # Real-Time Weather Monitoring System
 
-This project is a Python-based weather monitoring system that provides real-time weather updates, daily summaries, and alerts for multiple cities.
+## Overview
+This project is a Python-based real-time weather monitoring system that fetches data from OpenWeatherMap API, processes it, and provides visualizations and alerts for multiple cities.
 
-## What This Project Does
+## Features
+- Real-time weather data retrieval for multiple cities
+- Daily weather summaries with temperature aggregates
+- Identification of dominant weather conditions
+- Historical weather trends visualization
+- Configurable alert system for temperature thresholds
+- Console-based alerts with optional email notifications
 
-- Fetches real-time weather data for multiple cities
-- Calculates daily weather summaries (average, max, and min temperatures)
-- Identifies the main weather condition for each day
-- Alerts users when temperatures exceed set thresholds
-- Visualizes weather trends over time
+## Design Choices
 
-## How to Set Up and Run
+1. **Modular Architecture**: 
+   - The system is divided into separate modules (API, data aggregation, alerts, visualization) to enhance maintainability and allow for easy future expansions.
 
-1. Make sure you have Python 3.7 or newer installed on your computer.
+2. **Asynchronous API Calls**: 
+   - We use Python's `asyncio` and `aiohttp` to make asynchronous API calls, allowing efficient retrieval of data for multiple cities concurrently.
 
-2. Download this project to your computer.
+3. **In-Memory Processing with Database Backup**: 
+   - Recent data is kept in memory for fast processing, while historical data is stored in a SQLite database for persistence and long-term trend analysis.
 
-3. Open a terminal/command prompt and navigate to the project folder.
+4. **Configurable System**: 
+   - Key parameters like cities to monitor, update intervals, and alert thresholds are centralized in a configuration file for easy customization.
 
-4. Install the required Python packages by running:
+5. **Visualization with Matplotlib**: 
+   - We use Matplotlib for creating clear, informative visualizations of daily summaries and historical trends.
+
+6. **Alerting System**: 
+   - The system includes a flexible alerting mechanism that can be easily extended to support various notification methods.
+
+## Prerequisites
+- Python 3.7 or newer
+- pip (Python package installer)
+
+## Build Instructions
+
+1. **Clone the Repository**
    ```
-   pip install aiohttp matplotlib
+   git clone https://github.com/yourusername/weather-monitoring-system.git
+   cd weather-monitoring-system
    ```
 
-5. Get a free API key from OpenWeatherMap:
-   - Go to [OpenWeatherMap](https://openweathermap.org/) and sign up for a free account
-   - Once logged in, go to your profile and copy your API key
+2. **Set Up a Virtual Environment (Optional but Recommended)**
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
 
-6. Open the file `src/config/config.py` in a text editor and replace `"your_api_key_here"` with your actual API key.
+3. **Install Dependencies**
+   ```
+   pip install -r requirements.txt
+   ```
 
-7. In the same file, you can change the list of cities you want to monitor by editing the `CITIES` list.
+4. **Configure the System**
+   - Open `src/config/config.py` in a text editor
+   - Replace `"your_api_key_here"` with your OpenWeatherMap API key
+   - Modify the `CITIES` list to include the cities you want to monitor
+   - Adjust `UPDATE_INTERVAL` and `ALERT_THRESHOLDS` as needed
 
-8. To start the weather monitoring system, run:
+5. **Run the System**
    ```
    python run.py
    ```
 
-9. The program will start collecting weather data and will create visualizations in the project folder.
+## Project Structure
+weather-monitoring-system/
+├── src/
+│ ├── api/
+│ │ └── openweathermap.py # Handles API interactions
+│ ├── data/
+│ │ └── aggregator.py # Processes and aggregates weather data
+│ ├── alerts/
+│ │ └── alert_system.py # Manages the alerting system
+│ ├── visualization/
+│ │ └── data_visualizer.py # Creates data visualizations
+│ └── config/
+│ └── config.py # Central configuration file
+├── tests/
+│ └── test_weather_system.py # Unit tests for the system
+├── run.py # Main entry point of the application
+├── README.md
+└── requirements.txt # List of project dependencies
 
-## Understanding the Output
 
-- The program will print updates to the console as it collects data.
-- It will create image files (PNG) in the project folder showing weather trends.
-- If the temperature in any city goes above the set threshold, you'll see alert messages in the console.
+## Configuration Options
+- `API_KEY`: Your OpenWeatherMap API key
+- `CITIES`: List of cities to monitor
+- `UPDATE_INTERVAL`: Time between data updates (in seconds)
+- `ALERT_THRESHOLDS`: Temperature thresholds for triggering alerts
 
-## Customizing the System
+## Running Tests
+Execute the following command to run the test suite:  python -m unittest discover tests
 
-- To change how often the system updates, edit the `UPDATE_INTERVAL` in `src/config/config.py`.
-- To adjust temperature alert thresholds, modify the `ALERT_THRESHOLDS` in the same file.
+## Extending the System
+- To add new cities: Modify the `CITIES` list in `src/config/config.py`
+- To change alert thresholds: Update `ALERT_THRESHOLDS` in `src/config/config.py`
+- To add new data visualizations: Extend the `DataVisualizer` class in `src/visualization/data_visualizer.py`
 
+## Troubleshooting
+- Ensure your API key is correctly set in the configuration file
+- Check your internet connection if you're experiencing data retrieval issues
+- For visualization problems, ensure Matplotlib is correctly installed
